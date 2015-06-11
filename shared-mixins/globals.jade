@@ -1,28 +1,57 @@
-include ../shared-mixins/globals.jade
+//- Breadcrumbs
+mixin breadcrumbs
+  if breadcrumbs && breadcrumbs.size() > 1
+    dl.sub-nav
+      #navigation
+        for item,index in breadcrumbs
+          if index == breadcrumbs.size() -1
+            dd.active
+              a(href= item.href)= item.title
+          else
+            dd
+              if activeFilter
+                a(href= item.href + '/' + activeFilter.ids)= item.title
+              else
+                a(href= item.href)= item.title
 
-//- static texts
-- var head_title = 'TEAM Mentor 4.0 (Html version)'
-- var tm_version  = 'TEAM Mentor v4.0 (Alpha 15)'
+//- Form Inputs
+mixin username-input
+  label(for='username') Username
+  input(type='text', id='username', name='username', placeholder='Username',value='#{viewModel?viewModel.username:""}',required,maxlength='256')
 
-mixin tm-support-email
-    a#tm-support-email(href='mailto:support@securityinnovation.com') support@securityinnovation.com
+mixin password-input
+  label(for='password') Password
+  input(type='password', id='password', name='password', placeholder='Password',value='#{viewModel?viewModel.password:""}',required,maxlength='256')
 
-mixin copyright
-    #copyright
-        .row
-            .col-offset-1.col-10
-                a(href='http://www.securityinnovation.com/', target='_blank')
-                    #si-logo
-                include:md ../../TM_4_Static/content/articles/copyright-information.md
-                ul
-                    li
-                        +mail-icon
-                        a(href='mailto:support@securityinnovation.com') support@securityinnovation.com
-                    li
-                        +paperclip-icon
-                        a#terms-and-conditions(href="/misc/terms-and-conditions") Terms & Conditions
+mixin confirm-password-input
+  label(for='confirm-password') Confirm Password
+  input(type='password', id='confirm-password', name='confirm-password',placeholder='Password',value='#{viewModel?viewModel.confirmpassword:""}',maxlength='256')
 
-//- Icons
+mixin email-input
+  label(for='email') Email Address
+  input(type='email', id='email', name='email', placeholder='Email Address',value='#{viewModel?viewModel.email:""}',maxlength='256')
+
+//- Form Buttons
+mixin login-button
+  button.full-width(type='submit', id='btn-login') Login
+
+mixin sign-up-button
+  button.full-width(type='submit', id='btn-sign-up') Sign Up
+
+mixin get-password-button
+  button.full-width(type='submit' id='btn-get-password') Get Password
+
+mixin reset-password-button
+  button.full-width(type='submit' id='btn-reset-password') Reset Password
+
+mixin start-trial-button
+  button
+    span Start your free trial today
+
+mixin see-for-yourself-button
+  button
+    span See for yourself
+
 mixin search-icon
   span.icon-Search(title='Search')
     span.path1
@@ -95,6 +124,7 @@ mixin ios-icon
   span.icon-iOS(title='iOS')
     span.path1
     span.path2
+    span.path3
 
 mixin java-icon
   span.icon-Java(title='Java')
@@ -170,7 +200,6 @@ mixin design-icon
     span.path2
     span.path3
     span.path4
-    span.path5
 
 mixin implement-icon
   span.icon-Implementation(title='Implementation')
@@ -183,10 +212,25 @@ mixin test-icon
     span.path1
     span.path2
 
+mixin article-icon
+  span.icon-Article(title='Article')
+
+mixin filters-icon
+  span.icon-Filter(title='Filter')
+
+mixin delete-icon
+  span.icon-Delete(title='Delete')
+
 mixin default-icon
   span.icon-Default(title='Default')
     span.path1
     span.path2
+
+mixin save-icon
+  span.icon-Save(title='Save')
+
+mixin share-icon
+  span.icon-Share(title='Share')
 
 mixin filter-icon(filter, title)
   span#filter-icon
