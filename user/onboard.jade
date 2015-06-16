@@ -1,9 +1,7 @@
 extends ../_layouts/page_logged_in.jade
-include ../_mixins/user-mixins
-include ../_mixins/search-mixins
 
 block content
-   #application
+  #application
       .row
         br
         br
@@ -19,20 +17,20 @@ block content
             .lge-container
               .bg
                 h2 Search
-                img(src='../assets/stock-img/jade-index.jpg')
+                img(src='../../TM_Static/assets/stock-img/jade-search.jpg')
                 .lge-container
                   include:marked ../../TM_Static/content/new-user-onboard/search.md
           .col-4
             .lge-container
               .bg
                 h2 Navigate
-                img(src='../assets/stock-img/jade-index.jpg')
+                img(src='../../TM_Static/assets/stock-img/jade-index.jpg')
                 .lge-container
                   include:marked ../../TM_Static/content/new-user-onboard/index.md
           .col-4
             .lge-container
               .bg
                 h2 Filters
-                img(src='../assets/stock-img/jade-filter.jpg')
+                img(src='../../TM_Static/static/assets/stock-img/jade-filter.jpg')
                 .lge-container
                   include:marked ../../TM_Static/content/new-user-onboard/filter.md
