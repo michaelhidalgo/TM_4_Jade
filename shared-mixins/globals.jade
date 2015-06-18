@@ -279,7 +279,7 @@ mixin filter-icon(filter, title)
           when 'HTML5'
             +html5-icon
           default
-            +all-icon
+            +default-icon
 
       when 'Phase'
         case title
@@ -291,3 +291,5 @@ mixin filter-icon(filter, title)
             +implement-icon
           when 'Test'
             +test-icon
+          default
+            +default-icon
