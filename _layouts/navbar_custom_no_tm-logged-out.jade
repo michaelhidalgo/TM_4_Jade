@@ -1,7 +1,13 @@
 include ../_mixins/links.jade
 
 .fixed.landing-page
-    if (custom_navigation)
-        #customer-navigation
-            #customer-logo
-                img(src=custom_navigation.logo)
+    if (global.custom.custom_navigation)
+         -customSettings = global.custom.custom_navigation
+        #customer-navigation(style={background:customSettings.backgroundColor, height:customSettings.height})
+            #customer-logo(style ={'margin-top':customSettings.logoMargin})
+                img(src=global.custom.custom_navigation.logo)
+        p(style=customSettings.logoTextStyle)
+            span #{global.custom.custom_navigation.logoText}
+
+        p(style=customSettings.logoSubTextStyle)
+            span #{global.custom.custom_navigation.logoSubText}
