@@ -3,5 +3,10 @@ html(lang='en')
     include head
     body
         include navbar_logged_out
-        #landing-page
-            block content
+        if (custom_navigation)
+            #customer
+                #landing-page
+                    block content
+        else
+            #landing-page
+                block content
