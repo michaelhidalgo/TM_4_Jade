@@ -4,9 +4,6 @@ include ../shared-mixins/globals.jade
 - var head_title = 'TEAM Mentor 4.0 (Html version)'
 - var tm_version  = 'TEAM Mentor v4.0 (Alpha 15)'
 
-mixin tm-support-email
-    a#tm-support-email(href='mailto:support@securityinnovation.com') support@securityinnovation.com
-
 mixin copyright
     #copyright
         .row
@@ -102,7 +99,7 @@ mixin java-icon
     span.path2
 
 mixin all-icon
-  span.icon-All(title='Technology Independant')
+  span.icon-All(title='Technology Independent')
     span.path1
     span.path2
 
@@ -237,7 +234,7 @@ mixin filter-icon(filter, title)
           when 'HTML5'
             +html5-icon
           default
-            +all-icon
+            +default-icon
 
       when 'Phase'
         case title
@@ -249,3 +246,5 @@ mixin filter-icon(filter, title)
             +implement-icon
           when 'Test'
             +test-icon
+          default
+            +default-icon

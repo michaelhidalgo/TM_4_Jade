@@ -1,0 +1,36 @@
+extends ../_layouts/page_logged_in.jade
+
+block content
+  #application
+    .row
+      br
+      br
+      .col-offset-1.col-10
+        .row
+          .col-10
+            br
+            .label Welcome to TEAM Mentor
+          .col-2
+            a.button(href='main.html') Go to app
+        br
+        .col-4
+          .lge-container
+            .bg
+              h2 Search
+              img(src='../assets/stock-img/jade-search.jpg')
+              .lge-container
+                include:marked ../../TM_Static/content/new-user-onboard/search.md
+        .col-4
+          .lge-container
+            .bg
+              h2 Navigate
+              img(src='../assets/stock-img/jade-index.jpg')
+              .lge-container
+                include:marked ../../TM_Static/content/new-user-onboard/index.md
+        .col-4
+          .lge-container
+            .bg
+              h2 Filters
+              img(src='../assets/stock-img/jade-filter.jpg')
+              .lge-container
+                include:marked ../../TM_Static/content/new-user-onboard/filter.md
